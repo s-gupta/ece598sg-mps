@@ -20,8 +20,8 @@ register(
 )
 
 register(
-    id='PendulumBalance-v2',
+    id='PendulumInvert-v1',
     entry_point='envs:PendulumEnv',
     max_episode_steps=200,
-    kwargs={'init_theta': np.pi, 'init_thetadot': 2.0, 'max_torque': 1.0, 'noise': 0.0}
+    kwargs={'init_theta': np.pi, 'init_thetadot': 0.0, 'max_torque': 1.0, 'noise': 0.0}
 )

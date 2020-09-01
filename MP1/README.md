@@ -2,9 +2,9 @@
 ### Programming Assignment 1
 You must do `(A or B) and C`. If you took CS543 / ECE 549 in Spring 2020, you
 must do `B and C`. <br/>
-A. [Semantic Segmentation](./sseg/README.md) <br/>
-B. [Character RNN](./char-rnn/README.md) <br/>
-C. [Linear Quadratic Regulators](./lqr/README.md) <br/>
+A. [Semantic Segmentation](./sseg) <br/>
+B. [Character RNN](./char-rnn) <br/>
+C. [Linear Quadratic Regulators](./lqr) <br/>
 
 
 
@@ -16,10 +16,12 @@ on [course
 website](http://saurabhg.web.illinois.edu/teaching/ece598sg/fa2020/index.html).
 3. Submission instructions:
    1. A single report for all questions in PDF format, to be submitted to
-   gradescope.  Course code is `MZN3XY`. This report should contain all that
-   you want us to look at.
+   gradescope (under assignment `MP1`).  Course code is `MZN3XY`. This report
+   should contain all that you want us to look at. Please also tag your PDF
+   with locations for each question in the gradescope interface.
    2. You also need to submit code for all questions in the form of a single .zip
-   file. Submit a single zip file to Compass2g.
+   file. Please submit this under `MP1-code` on gradescope (*tentative, we are
+   still sorting out how to get code submitted*). 
    3. We reserve the right to take off points for not following submission
    instructions.
 4. Problems A. and B. will involve training neural network models. You will

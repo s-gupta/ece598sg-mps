@@ -89,6 +89,8 @@ class PendulumEnv(gym.Env):
         self.state = self.np_random.uniform(low=-high, high=high)
         self.states.append(self.state)
         self.last_u = None
+        self.total_time = 0
+        self.total_time_upright = 0
         return self._get_obs()
 
     def _get_obs(self):

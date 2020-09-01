@@ -4,7 +4,7 @@ control. You will be deriving the equations for a discrete time linear
 quadratic regulator, and using it to solve a linear system, and stabalizing a
 non-linear system about an unstable fixed point.
 
-1. **Deriving LQR Equations. [15pts]** Consider a linear system with state `x`, and
+1. **Deriving LQR Equations. [10pts]** Consider a linear system with state `x`, and
    controls `u` that evolves as per `x[t+1] = Ax[t] + Bu[t]`. We want to obtain
    control values `u[t]` that optimize the sum over a time horizon of `T`, of
    the following cost function: `x[t]'Qx[t] + u[t]'Ru[t]`. The total cost to go
@@ -21,7 +21,7 @@ non-linear system about an unstable fixed point.
    x[t+1] = x[t] + v[t]*dt
    v[t+1] = v[t] + u[t]*dt
    ```
-   1. **[5pts]** Write down the `A` and `B` matrices for this linear system?
+   1. **[4pts]** Write down the `A` and `B` matrices for this linear system.
    2. We want to control the acceleration for this point mass to
    bring it at rest at the origin. We will do so, by minimizing the sum over
    time of the following cost function: `x[t]^2 + v[t]^2 + u[t]^2`. Solve for a
@@ -37,9 +37,9 @@ non-linear system about an unstable fixed point.
         DoubleIntegrator-v1 --num_episodes 1 --vis`. Here is the visualization
         of the controller that I wrote: ![](vis-DoubleIntegrator-v1-0.gif)
       
-      1. **[5pts]** Report the control matrix and cost to go matrix for this
+      1. **[3pts]** Report the control matrix and cost to go matrix for this
       system as obtained by your implementation of LQR, for `t=0`.
-      2. **[5pts]** We will measure the average cost incurred by your
+      2. **[3pts]** We will measure the average cost incurred by your
       controller, and success rate (success defined as whether the point mass
       was in goal configuration at the end of the episode). You should report
       the total average cost, and success rate of your controller over 100
@@ -57,16 +57,16 @@ non-linear system about an unstable fixed point.
    We will linearize it about the inverted position, and obtain controllers
    that stabalize this linearized system.
 
-   1. **[5pts]** Linearize the system about the point `theta = 0` and `thetadot
+   1. **[4pts]** Linearize the system about the point `theta = 0` and `thetadot
    = 0`.  Show your work, and report the linearized system.
-   2. **[5pts]** Use the linear-quadratic regulator controller from the
+   2. **[3pts]** Use the linear-quadratic regulator controller from the
    previous parts, and obtain a controller to stabalize the pendulum. You can
    run the controller in this environment with `python run_classical_control.py
    --env_name PendulumBalance-v1 --num_episodes 1`.  You can also use the
    `--vis` flag as above. Report the average cost, and total number of frames
    that the pendulum is upright (`abs(th) < 0.1`) over 100 episodes. <br/>
    ![](vis-PendulumBalance-v1-0.gif).
-   3. **[5pts]** Next, we will study how robust is your controller to noise in
+   3. **[3pts]** Next, we will study how robust is your controller to noise in
    the dynamics. We will add zero-mean Gaussian noise (with varying standard
    deviation) to the dynamics updates (see [here](envs/pendulum.py#L69)). We
    will measure the total time spent by the pendulum in the upright position.
@@ -78,3 +78,10 @@ non-linear system about an unstable fixed point.
    the noise for your controller. As above use 100 episodes per standard
    deviation value.  Vary the standard deviation between `0` and `0.1` in steps
    of `0.01`.
+   4. **[Extra Credit 3 pts]** Use your linear controller from above to invert
+   a pendulum.  `PendulumInvert-v1` initializes the pendulum at a random angle,
+   and you need to apply control to flip it over and keep it upright, and you
+   can run it using `python run_classical_control.py --env_name
+   PendulumInvert-v1 --num_episodes 1`.  Consider plotting how often this
+   linear controller is able to invert the pendulum as a function of the
+   starting theta.
