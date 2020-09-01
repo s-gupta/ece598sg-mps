@@ -1,0 +1,11 @@
+gym
+absl-py
+jupyter
+seaborn
+matplotlib
+Pillow
+tqdm
+scikit-learn
+torch
+torchvision
+unidecode
