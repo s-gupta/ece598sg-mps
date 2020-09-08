@@ -10,7 +10,8 @@ non-linear system about an unstable fixed point.
    the following cost function: `x[t]'Qx[t] + u[t]'Ru[t]`. The total cost to go
    when acting optimally at any time-step `t` is a quadratic function of the
    state at that time: `x[t]'P[t]x[t]`. Derive equations that can be used to
-   obtain `P[t]`, and the corresponding optimal control `u[t]`.
+   obtain `P[t]`, and the corresponding optimal control `u[t]`. Note, `a'` here
+   denotes the transpose of the vector `a`.
 2. **Controlling a linear system.** We will now use the equations that you
    derived above to control a linear system. Consider a point mass in 1D, for
    which we can control the acceleration. The state of this system can be
