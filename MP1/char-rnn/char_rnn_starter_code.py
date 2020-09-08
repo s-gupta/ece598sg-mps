@@ -53,9 +53,9 @@ class PaperDataset(data.Dataset):
 # We are providing a very simple network that looks at just the current token,
 # and tries to predict the next token.  As part of the assignment you will
 # develop a more expressive model to improve performance.
-class OneGram(nn.Module):
+class TwoGram(nn.Module):
     def __init__(self, n_classes):
-        super(OneGram, self).__init__()
+        super(TwoGram, self).__init__()
         self.layers = nn.Sequential(
             nn.Embedding(n_classes, n_classes)
         )
@@ -109,11 +109,12 @@ def evaluate(model, device, prime_str='A', predict_len=200, temperature=0.8):
     prime_tensor = torch.from_numpy(prime_ind).long().to(device)
     predicted_str = prime_str
 
-    # My simple 1-Gram model doesn't require any hidden state, but your RNN
-    # model will require initialization of hidden state.
+    # My simple 2-Gram model doesn't require any hidden state beyond the
+    # current character, but your RNN model will require initialization of
+    # hidden state.
     hidden = model.init_hidden(1, device)
 
-    # My simple 1-Gram model, only looks at the last one letter, but your more
+    # My simple 2-Gram model, only looks at the last one letter, but your more
     # expressive RNN model could look at the entire context. Something as
     # follows:
     for p in range(len(prime_str) - 1):
@@ -173,8 +174,7 @@ def simple_val(model, imset, device):
 def simple_train(device):
     # Initializing a simple model.
     train_dataset = PaperDataset(device, split='train')
-    model = OneGram(len(train_dataset.classes))
-    # model = NGram(len(train_dataset.classes), 8)
+    model = TwoGram(len(train_dataset.classes))
 
     # Moving the model to the device (eg GPU) used for training.
     model = model.to(device)
@@ -191,7 +191,7 @@ def simple_train(device):
 
     iteration = 0
 
-    # Number of epochs to train for. You mat need to train for much longer.
+    # Number of epochs to train for. You may need to train for much longer.
     num_epochs = 200
     for j in tqdm(range(num_epochs)):
         train_dataset.set_offset(offset=None, seed=j)
@@ -237,7 +237,7 @@ def simple_train(device):
             print(gen_text)
             model.train()
 
-    # We are simply returning the model after 20 epocs, you may want to train
+    # We are simply returning the model after 200 epocs, you may want to train
     # for longer, and possibly pick the model that leads to the best metrics on
     # the validation set.
     return model
@@ -258,7 +258,7 @@ def main():
 
     # Following function generates abstracts for titles in the test set for
     # qualitative analysis.
-    file_name = 'OneGram-generated-abstracts.txt'
+    file_name = 'TwoGram-generated-abstracts.txt'
     generate_abstract(model, device, file_name, temperature=0.8)
 
 

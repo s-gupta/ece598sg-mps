@@ -35,11 +35,11 @@ quality of your generations.
 
 #### What you need to do
 1. **Develop your model [25 pts]**: Design recurrent models for solving this
-   task. You will have to implement another class analogous to `OneGram` class
+   task. You will have to implement another class analogous to `TwoGram` class
    provided in the starter code. You can refer to online tutorials and research
    papers, but don't copy someone else's code as is.
    
-   You should experiment with atleast two, if not more of the following:
+   You should experiment with at least two, if not more of the following:
    1. different variants (LSTMs vs GRU vs RNNs), 
    2. size of hidden layers, 
    3. number of hidden recurrent layers. 
@@ -51,7 +51,7 @@ quality of your generations.
    training plots and validation metrics.
    
    For reference, our very basic implementation is able to do 1 training epoch
-   in under 20 seconds, and acheives a NLL of 1.0 in under 40 minutes of
+   in under 20 seconds, and achieves a NLL of 1.0 in under 40 minutes of
    training. At the very least your implementation should achieve as low 
    a NLL on the validation set, but you may be able to do substantially
    better with more training, and trying out alternate architectures. Also
