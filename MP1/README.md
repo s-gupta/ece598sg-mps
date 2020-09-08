@@ -20,8 +20,7 @@ website](http://saurabhg.web.illinois.edu/teaching/ece598sg/fa2020/index.html).
    should contain all that you want us to look at. Please also tag your PDF
    with locations for each question in the gradescope interface.
    2. You also need to submit code for all questions in the form of a single .zip
-   file. Please submit this under `MP1-code` on gradescope (*tentative, we are
-   still sorting out how to get code submitted*). 
+   file. Please submit this under `MP1-code` on gradescope.
    3. We reserve the right to take off points for not following submission
    instructions.
 4. Problems A. and B. will involve training neural network models. You will
