@@ -15,7 +15,7 @@ def test_model_in_env(model, env, episode_len, device,
     with torch.no_grad():
         for t in range(episode_len):
             if not visual:
-                state = torch.from_numpy(states).float().to(device).unsqueeze(0)
+                state = torch.from_numpy(state).float().to(device).unsqueeze(0)
             else:
                 state = transforms.ToTensor()(state).to(device).unsqueeze(0)
             action = model.act(state).detach().cpu().numpy()
